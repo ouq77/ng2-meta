@@ -4,9 +4,11 @@
   "version": "2.0.3",
   "scripts": {
     "lint": "tslint src/**/*.ts",
-    "postinstall": "tsc",
-    "prepublish": "tsc",
-    "tsc": "tsc"
+    "postinstall": "npm run build",
+    "prepublish": "npm run build",
+    "build": "ngc && tsc",
+    "ngc": "ngc -p tsconfig.ngc.json",
+    "tsc": "tsc -p tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -42,6 +44,8 @@
   },
   "devDependencies": {
     "@angular/compiler": "^2.4.4",
+    "@angular/compiler-cli": "2.4.9",
+    "@types/es6-shim": "0.31.32",
     "codelyzer": "^2.0.0-beta.4",
     "tslint": "^4.3.1",
     "typescript": "^2.1.5"

@@ -43,6 +43,9 @@ jspm_packages
 *.map
 *.d.ts
 typings
+dist/
+src/*.ngfactory.ts
+src/*.ngsummary.json
 
 # IDE files #
 .idea

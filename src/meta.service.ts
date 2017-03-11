@@ -11,8 +11,8 @@ const isDefined = (val: any) => typeof val !== 'undefined';
 
 @Injectable()
 export class MetaService {
-  private defaultsMeta: Object;
-  private defaultsLinks: Object;
+  private defaultsMeta: any;
+  private defaultsLinks: any;
   private defaultsAlternateLinks: Array<string>;
 
   constructor(private router: Router, @Inject(DOCUMENT) private document: any, private titleService: Title, private activatedRoute: ActivatedRoute, @Inject(META_CONFIG) private metaConfig: MetaConfig) {
@@ -65,7 +65,7 @@ export class MetaService {
 
   private _updateMetaTags(meta: any = {}, links: any = {}, alternateLinks: Array<string> = []) {
     if (meta.disableUpdate) {
-      return false;
+      return;
     }
 
     this.setTitle(meta.title, meta.titleSuffix);
